@@ -5,7 +5,7 @@ import { getAllUsers, getUserTasksByUserId, createUser, updateUser, deleteUser }
 
   //users routes
   router.get('/', getAllUsers);
-  // router.get('/:id/tasks', getUserTasksByUserId);
+  router.get('/:id/tasks', getUserTasksByUserId);
   router.post('/', createUser);
   router.put('/:id', updateUser);
   router.delete('/:id', deleteUser);

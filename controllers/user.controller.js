@@ -44,31 +44,31 @@ export function deleteUser(request, response, next) {
   }
 
 
-// //function or endpoint to display a single registered user: (GET — /users/:id | getUserById() )
-// export function getUserTasksByUserId(request, response, next) {
-//     const id = parseInt(request.params.id)
+//function or endpoint to display a single registered user: (GET — /users/:id | getUserById() )
+export function getUserTasksByUserId(request, response, next) {
+    const id = parseInt(request.params.id)
   
-//     pool.query('SELECT users.id, name, user_tasks.id as taskid, description, state FROM public.users JOIN public.user_tasks ON users.id = user_tasks.user_id WHERE users.id = $1', [id], (error, results) => {
-//       if (error) {
-//         throw error
-//       }
-//       response.status(200).json(results.rows)
-//     })
-//   }
+    pool.query('SELECT users.id, name, user_tasks.id as taskid, description, state FROM public.users JOIN public.user_tasks ON users.id = user_tasks.user_id WHERE users.id = $1', [id], (error, results) => {
+      if (error) {
+        throw error
+      }
+      response.status(200).json(results.rows)
+    })
+  }
 
 
-// //function or endpoint to create a new user: (POST — users | createUser())
-// export function createUser(request, response, next) {
-//     const {name} = request.body
+//function or endpoint to create a new user: (POST — users | createUser())
+export function createUser(request, response, next) {
+    const {name} = request.body
   
-//     pool.query('INSERT INTO users (name) VALUES ($1)',
-//      [name], (error, results) => {
-//       if (error) {
-//         throw error
-//       }
-//       response.status(201).json({status: 'success', message:'User successfully created'})
-//     })
-//   }
+    pool.query('INSERT INTO users (name) VALUES ($1)',
+     [name], (error, results) => {
+      if (error) {
+        throw error
+      }
+      response.status(201).json({status: 'success', message:'User successfully created'})
+    })
+  }
 
 
 
