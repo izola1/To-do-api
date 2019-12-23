@@ -1,6 +1,6 @@
 import express from 'express';
 import { json, urlencoded } from 'body-parser';
-const app = express()
+const app = express();
 import users from './routes/user.routes';
 import tasks from './routes/userTask.routes';
 
@@ -25,7 +25,7 @@ app.get('/', (request, response) => {
  app.use('/api/v1/users/:id/tasks', users);
 
   //taks routes
-  //app.use('/api/v1/tasks', tasks);
+ app.use('/api/v1/tasks', tasks);
 
 
   app.listen(port, () => {
