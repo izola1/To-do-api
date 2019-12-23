@@ -2,7 +2,7 @@ import express from 'express';
 import { json, urlencoded } from 'body-parser';
 const app = express()
 import users from './routes/user.routes';
-//import tasks from './routes/userTask.routes';
+import tasks from './routes/userTask.routes';
 
 
 const port = process.env.PORT || 3000;
