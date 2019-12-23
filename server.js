@@ -22,7 +22,7 @@ app.get('/', (request, response) => {
  app.use('/api/v1/users', users);
 
  //single user and associated tasks route
-// app.use('/api/v1/users/:id/tasks', users);
+ app.use('/api/v1/users/:id/tasks', users);
 
   //taks routes
   //app.use('/api/v1/tasks', tasks);
