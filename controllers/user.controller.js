@@ -57,18 +57,18 @@ export function getUserTasksByUserId(request, response, next) {
   }
 
 
-//function or endpoint to create a new user: (POST — users | createUser())
-export function createUser(request, response, next) {
-    const {name} = request.body
+// //function or endpoint to create a new user: (POST — users | createUser())
+// export function createUser(request, response, next) {
+//     const {name} = request.body
   
-    pool.query('INSERT INTO users (name) VALUES ($1)',
-     [name], (error, results) => {
-      if (error) {
-        throw error
-      }
-      response.status(201).json({status: 'success', message:'User successfully created'})
-    })
-  }
+//     pool.query('INSERT INTO users (name) VALUES ($1)',
+//      [name], (error, results) => {
+//       if (error) {
+//         throw error
+//       }
+//       response.status(201).json({status: 'success', message:'User successfully created'})
+//     })
+//   }
 
 
 
