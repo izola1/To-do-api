@@ -3,8 +3,13 @@
   "version": "1.0.0",
   "description": "A simple to do API",
   "main": "server.js",
+  "engines": {
+    "node": "10.x"
+  },
+
   "scripts": {
     "test": "",
+ 
     "start": "node --exec babel-node server.js",
     "start:dev": "nodemon --exec babel-node server.js"
   },
