@@ -1,32 +1,25 @@
-import express from 'express';
-import { json, urlencoded } from 'body-parser';
+const express = require('express')
+const bodyParser = require('body-parser')
 const app = express();
-import users from './routes/user.routes';
-import tasks from './routes/userTask.routes';
-
+const usersTasks = require('./routes/user.tasks.routes');
 
 const port = process.env.PORT || 3000;
 
-app.use(json())
+app.use(bodyParser.json())
 app.use(
-  urlencoded({
+  bodyParser.urlencoded({
     extended: true,
   })
 )
 
+
 app.get('/', (request, response) => {
-    response.json({ info: 'Node.js, Express, and Postgres API' })
+    response.json({ info: 'Welcome to my simple To-Do NODE.JS REST API' })
   })
 
- //users routes
- app.use('/api/v1/users', users);
-
- //single user and associated tasks route
- app.use('/api/v1/users/:id/tasks', users);
-
-  //taks routes
- app.use('/api/v1/tasks', tasks);
-
+ //users/Tasks routes
+ app.use('/api/v1/users', usersTasks);
+ app.use('/api/v1/users/:id/tasks', usersTasks);
 
   app.listen(port, () => {
     console.log(`App running on port ${port}.`)
