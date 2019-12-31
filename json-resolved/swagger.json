@@ -1,0 +1,254 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "This is a sample API Documentation for a simple To Do App by Isaac Adamu.\n",
+    "version" : "1.0.0",
+    "title" : "To Do App API Documentation",
+    "termsOfService" : "http://swagger.io/terms/",
+    "contact" : {
+      "email" : "isaacmagaji1@gmail.com"
+    },
+    "license" : {
+      "name" : "Apache 2.0",
+      "url" : "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "host" : "to-do-node-api.herokuapp.com",
+  "basePath" : "/api/v1",
+  "tags" : [ {
+    "name" : "users-tasks",
+    "description" : "Operations about user and its tasks"
+  } ],
+  "schemes" : [ "http", "https" ],
+  "paths" : {
+    "/users" : {
+      "post" : {
+        "tags" : [ "users-tasks" ],
+        "summary" : "Create user",
+        "description" : "This endpoint request create a user.",
+        "operationId" : "createUser",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "On the Edit Value Tab below, type a new user name in double quotes as a value for the name filed",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/User"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "successful operation"
+          }
+        }
+      }
+    },
+    "/users/" : {
+      "get" : {
+        "tags" : [ "users-tasks" ],
+        "summary" : "Dispalys list of all users",
+        "description" : "This endpoint uses get request retrieve all the users.",
+        "operationId" : "retrieveUsers",
+        "produces" : [ "application/json" ],
+        "parameters" : [ ],
+        "responses" : {
+          "default" : {
+            "description" : "successful operation"
+          }
+        }
+      }
+    },
+    "/users/{id}" : {
+      "get" : {
+        "tags" : [ "users-tasks" ],
+        "summary" : "Get user by user name",
+        "operationId" : "getUserByName",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "Enter below the id of the user that needs to be fetched. Use id 1 to 5 for testing.",
+          "required" : true,
+          "type" : "integer"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/User"
+            }
+          },
+          "400" : {
+            "description" : "Invalid id supplied"
+          },
+          "404" : {
+            "description" : "User not found"
+          }
+        }
+      },
+      "put" : {
+        "tags" : [ "users-tasks" ],
+        "summary" : "Updated user",
+        "description" : "This endpoint update an existing user's record.",
+        "operationId" : "updateUser",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "Enter below the id of the user that needs to be updated. Use id 1 to 5 for testing.",
+          "required" : true,
+          "type" : "integer"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "description" : "On the Example Value Tab below, type a new user name in double quotes as a value for the name filed",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/User"
+          }
+        } ],
+        "responses" : {
+          "400" : {
+            "description" : "Invalid user id supplied"
+          },
+          "404" : {
+            "description" : "User not found"
+          }
+        }
+      },
+      "delete" : {
+        "tags" : [ "users-tasks" ],
+        "summary" : "Delete user",
+        "description" : "This endpoint deletes an existing user from the database.",
+        "operationId" : "deleteUser",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "Enter below the id of the user that needs to be deleted. Use id 1 to 5 for testing.",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "400" : {
+            "description" : "Invalid username supplied"
+          },
+          "404" : {
+            "description" : "User not found"
+          }
+        }
+      }
+    },
+    "/users/{id}/tasks" : {
+      "post" : {
+        "tags" : [ "users-tasks" ],
+        "summary" : "Create Task",
+        "description" : "This endpoint request create a Task.",
+        "operationId" : "createTask",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "ID of the creating the task",
+          "required" : true,
+          "type" : "integer"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "description" : "On the Edit Value Tab below, type a task description, and task state in double quotes while your user id without quotes",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/Task"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "successful operation"
+          }
+        }
+      }
+    },
+    "/users/{id}/tasks/{id}" : {
+      "put" : {
+        "tags" : [ "users-tasks" ],
+        "summary" : "Update a Task",
+        "description" : "This endpoint request create a Task.",
+        "operationId" : "updateTask",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "ID of the creating the task",
+          "required" : true,
+          "type" : "integer"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "description" : "On the Edit Value Tab below, type a task description, and task state in double quotes while your user id without quotes",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/Task"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "successful operation"
+          }
+        }
+      }
+    }
+  },
+  "securityDefinitions" : {
+    "petstore_auth" : {
+      "type" : "oauth2",
+      "authorizationUrl" : "http://petstore.swagger.io/oauth/dialog",
+      "flow" : "implicit",
+      "scopes" : {
+        "write:pets" : "modify pets in your account",
+        "read:pets" : "read your pets"
+      }
+    },
+    "api_key" : {
+      "type" : "apiKey",
+      "name" : "api_key",
+      "in" : "header"
+    }
+  },
+  "definitions" : {
+    "User" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "name" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Task" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "description" : {
+          "type" : "string"
+        },
+        "state" : {
+          "type" : "string"
+        },
+        "user_id" : {
+          "type" : "integer"
+        }
+      }
+    }
+  },
+  "externalDocs" : {
+    "description" : "Find out more about Swagger",
+    "url" : "http://swagger.io"
+  }
+}
