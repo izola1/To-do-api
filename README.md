@@ -46,18 +46,28 @@ https://izola1.github.io/To-do-node-api
 
 # HOW TO RUN TO TEST THE APP
 
+### Prerequisites
+
+- Javascript
+- Node.js 
+- Express 
+- npm install (dependencies used in the project)
+- ​PostgreSQL (DataBase)
+- The app is hosted on heroku
+- The API documentation is hostel on github pages
+
 # clone project
-$ git clone https://github.com/wincodes/teamwork-api.git
+$ git clone https://github.com/izola1/To-do-node-api.git
 
 # cd into the project folder
-$ cd teamwork-api
+$ cd To-do-node-api
 
 # install project dependencies
 $ npm install
 
 # set up database and environment variables
-- create a postgres database on your local machine or online
-- configure your .env and config.js file to connect to local or online postgres database
+- create a postgres database on your local machine 
+- configure your .env and config.js file to connect to local postgres database
 - create the users and users_tasks tables and load the sample data using the init.sql file
 # start the development server
 $ nodemon server
