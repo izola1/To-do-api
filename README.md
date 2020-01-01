@@ -7,8 +7,7 @@ This is a simple Node/Express RESTful To Do APP API. The goal of this simple app
 https://to-do-node-api.herokuapp.com  
 
 # api documentation running on
-
-
+https://izola1.github.io/To-do-node-api
 
 # Models:
 
